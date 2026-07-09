@@ -1,19 +1,20 @@
 {
-    "category": "CRM Marketing Sales",
-    "description": "Integrated platform for CRM, marketing automation, sales, service, and content management, helping businesses grow.",
-    "auth_method": "OAuth 2.0, API Key (Legacy), Private Apps",
+    "category": "CRM & Marketing",
+    "description": "Comprehensive CRM platform for marketing, sales, service, and content management, with extensive integration capabilities.",
+    "auth_method": "OAuth 2.0, Private Apps",
     "self_serve": "Yes",
     "api_type": "REST + Webhooks",
     "api_coverage": "Broad",
     "mcp_support": "No",
     "buildability_verdict": "Yes",
-    "main_blocker": "",
+    "main_blocker": "None",
     "evidence": {
-        "authentication": "https://developers.hubspot.com/docs/api/auth",
-        "api": "https://developers.hubspot.com/docs/api/overview",
+        "authentication": "https://developers.hubspot.com/docs/api/authentication",
+        "api": "https://developers.hubspot.com/docs/api",
         "pricing": "https://www.hubspot.com/pricing"
     },
     "verified": true,
     "confidence": 100,
-    "verification_notes": ""
+    "verification_notes": "",
+    "corrections": 0
 }

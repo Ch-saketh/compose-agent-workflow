@@ -3,10 +3,9 @@
         "total_apps": 7,
         "authentication": {
             "API Key or OAuth 2.0": 1,
-            "OAuth 2.0, API Key (Legacy), Private Apps": 1,
+            "OAuth 2.0, Private Apps": 1,
             "API Key, OAuth 2.0": 1,
-            "OAuth 2.0": 1,
-            "OAuth 2.0, SAML, Password-based": 1,
+            "OAuth 2.0": 2,
             "OAuth 2.0 (User, Bot, App Tokens)": 1,
             "API Token": 1
         },
@@ -21,16 +20,16 @@
         },
         "categories": {
             "Sales CRM Platform": 1,
-            "CRM Marketing Sales": 1,
-            "CRM Platform": 2,
+            "CRM & Marketing": 1,
+            "CRM Platform": 1,
             "CRM Software": 1,
+            "CRM, Cloud Platform": 1,
             "Team Communication Platform": 1,
             "Open-source CRM": 1
         },
         "top_blockers": {
             "Lack of MCP support for advanced integrations.": 1,
-            "No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.": 1,
-            "MCP (Multi-Cloud Platform) support not available as a native feature.": 1
+            "No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.": 1
         },
         "average_confidence": 97.33,
         "verified_apps": 6,
@@ -40,7 +39,7 @@
         {
             "icon": "\ud83d\udd11",
             "heading": "Authentication",
-            "desc": "API Key or OAuth 2.0 is the dominant authentication method."
+            "desc": "OAuth 2.0 is the dominant authentication method."
         },
         {
             "icon": "\ud83c\udf10",
