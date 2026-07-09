@@ -1,0 +1,19 @@
+{
+    "category": "CRM Platform",
+    "description": "Salesforce is a leading cloud-based CRM platform offering sales, service, marketing, analytics, and app development solutions for businesses.",
+    "auth_method": "OAuth 2.0, SAML, Password-based",
+    "self_serve": "Yes",
+    "api_type": "REST + Webhooks",
+    "api_coverage": "Broad",
+    "mcp_support": "No",
+    "buildability_verdict": "Yes",
+    "main_blocker": "MCP (Multi-Cloud Platform) support not available as a native feature.",
+    "evidence": {
+        "authentication": "https://developer.salesforce.com/docs/atlas.en-us.api_auth.meta/api_auth/sforce_api_auth_overview.htm",
+        "api": "https://developer.salesforce.com/docs/salesforce-platform/guide/apis.html",
+        "pricing": "https://www.salesforce.com/pricing/"
+    },
+    "verified": true,
+    "confidence": 95,
+    "verification_notes": ""
+}

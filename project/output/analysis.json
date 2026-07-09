@@ -1,0 +1,46 @@
+{
+    "statistics": {
+        "total_apps": 7,
+        "authentication": {
+            "API Key or OAuth 2.0": 1,
+            "OAuth 2.0, API Key (Legacy), Private Apps": 1,
+            "API Key, OAuth 2.0": 1,
+            "OAuth 2.0": 1,
+            "OAuth 2.0, SAML, Password-based": 1,
+            "OAuth 2.0 (User, Bot, App Tokens)": 1,
+            "API Token": 1
+        },
+        "api_types": {
+            "REST + Webhooks": 7
+        },
+        "self_serve": {
+            "Yes": 7
+        },
+        "buildability": {
+            "Yes": 7
+        },
+        "categories": {
+            "Sales CRM Platform": 1,
+            "CRM Marketing Sales": 1,
+            "CRM Platform": 2,
+            "CRM Software": 1,
+            "Team Communication Platform": 1,
+            "Open-source CRM": 1
+        },
+        "top_blockers": {
+            "Lack of MCP support for advanced integrations.": 1,
+            "No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.": 1,
+            "MCP (Multi-Cloud Platform) support not available as a native feature.": 1
+        },
+        "average_confidence": 97.33,
+        "verified_apps": 6
+    },
+    "insights": [
+        "API Key or OAuth 2.0 is the dominant authentication method.",
+        "REST + Webhooks is the most common API type.",
+        "7 applications appear immediately buildable.",
+        "The most common blocker is 'Lack of MCP support for advanced integrations.'.",
+        "Most applications expose public APIs, making them strong candidates for agent integrations.",
+        "Native MCP support appears limited, representing an opportunity for custom Composio toolkits."
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "category": "Sales CRM Platform",
+    "description": "Close is a sales-focused CRM platform designed to help sales teams communicate, manage leads, and close deals efficiently.",
+    "auth_method": "API Key or OAuth 2.0",
+    "self_serve": "Yes",
+    "api_type": "REST + Webhooks",
+    "api_coverage": "Broad",
+    "mcp_support": "No",
+    "buildability_verdict": "Yes",
+    "main_blocker": "Lack of MCP support for advanced integrations.",
+    "evidence": {
+        "authentication": "https://developer.close.com/docs/authentication",
+        "api": "https://developer.close.com/api-reference",
+        "pricing": "https://close.com/pricing/"
+    },
+    "verified": true,
+    "confidence": 95,
+    "verification_notes": ""
+}

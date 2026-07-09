@@ -1,0 +1,15 @@
+{
+    "total_apps": 1,
+    "authentication": {
+        "OAuth 2.0 (User, Bot, App Tokens)": 1
+    },
+    "api_types": {
+        "REST + Webhooks": 1
+    },
+    "self_serve": {
+        "Yes": 1
+    },
+    "buildability": {
+        "Yes": 1
+    }
+}

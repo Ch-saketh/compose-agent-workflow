@@ -1,0 +1,19 @@
+{
+    "category": "CRM Software",
+    "description": "Cloud-based CRM platform to manage sales, marketing, and customer support operations.",
+    "auth_method": "OAuth 2.0",
+    "self_serve": "Yes",
+    "api_type": "REST + Webhooks",
+    "api_coverage": "Broad",
+    "mcp_support": "No",
+    "buildability_verdict": "Yes",
+    "main_blocker": "",
+    "evidence": {
+        "authentication": "https://www.zoho.com/crm/developer/docs/api/v6/oauth-overview.html",
+        "api": "https://www.zoho.com/crm/developer/docs/api/v6/",
+        "pricing": "https://www.zoho.com/crm/pricing.html"
+    },
+    "verified": true,
+    "confidence": 98,
+    "verification_notes": ""
+}

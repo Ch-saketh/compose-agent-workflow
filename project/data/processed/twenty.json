@@ -1,0 +1,19 @@
+{
+    "category": "Open-source CRM",
+    "description": "Open-source CRM for startups and small businesses. Manage customer relationships and sales.",
+    "auth_method": "API Token",
+    "self_serve": "Yes",
+    "api_type": "REST + Webhooks",
+    "api_coverage": "Broad",
+    "mcp_support": "Yes",
+    "buildability_verdict": "Yes",
+    "main_blocker": "None",
+    "evidence": {
+        "authentication": "https://docs.twenty.com/api-reference/authentication",
+        "api": "https://docs.twenty.com/api-reference",
+        "pricing": "https://twenty.com/pricing"
+    },
+    "verified": true,
+    "confidence": 98,
+    "verification_notes": "All fields in the research result are accurately reflected and sufficiently supported by the provided official documentation URLs."
+}

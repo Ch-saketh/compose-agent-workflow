@@ -1,0 +1,16 @@
+{
+    "category": "Team Communication Platform",
+    "description": "A messaging app for teams to communicate, collaborate, and share files in real-time with channels and direct messages.",
+    "auth_method": "OAuth 2.0 (User, Bot, App Tokens)",
+    "self_serve": "Yes",
+    "api_type": "REST + Webhooks",
+    "api_coverage": "Broad",
+    "mcp_support": "No",
+    "buildability_verdict": "Yes",
+    "main_blocker": "None",
+    "evidence": {
+        "authentication": "https://api.slack.com/authentication",
+        "api": "https://api.slack.com/methods",
+        "pricing": "https://slack.com/pricing"
+    }
+}
