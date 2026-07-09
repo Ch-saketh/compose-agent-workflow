@@ -1,4 +1,4 @@
-# Composio AI Product Operations – Take-Home Assignment
+# Composio AI Product Operations 
 
 An autonomous AI-powered research pipeline that evaluates SaaS applications for integration readiness by discovering official documentation, extracting structured metadata, verifying the results, benchmarking applications, and automatically generating an HTML case study.
 
