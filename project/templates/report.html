@@ -7,25 +7,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
 
     <!-- ===================================== -->
     <!-- Hero -->
     <!-- ===================================== -->
-    <section class="hero">
+    <section class="hero-section">
         <div class="hero-content">
-            <span class="badge">COMPOSIO PRODUCT OPERATIONS ASSIGNMENT</span>
+            <span class="badge">Composio Product Operations Assignment</span>
             <h1 class="hero-title">AI Product Research Pipeline</h1>
-            <h3 class="hero-subtitle">Automated Data Collection & Verification</h3>
-            <p class="hero-description">
-                An end-to-end autonomous agent workflow for discovering, researching, and verifying SaaS applications, API accessibility, authentication, MCP readiness, and agent buildability.
-            </p>
+            <p class="hero-subtitle">Automated SaaS API Research, Verification and Analysis</p>
             <div class="hero-buttons">
-                <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank" class="btn btn-primary">GitHub Repo</a>
-                <a href="#" target="_blank" class="btn btn-secondary">Portfolio</a>
-                <a href="#" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank" class="btn btn-primary">GitHub</a>
+                <a href="https://saketh-chokkapu-portfolio.vercel.app" target="_blank" class="btn btn-secondary">Portfolio</a>
+                <a href="https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
         </div>
     </section>
@@ -48,11 +47,12 @@
     <section class="note-section">
         <div class="info-card">
             <h3>Implementation Note</h3>
-            <p>This report contains a sample of 5 researched applications due to API usage limitations.</p>
+            <p>This report demonstrates the complete research workflow using a representative sample of applications.</p>
             <p>The pipeline is designed to process all 100 applications listed in <code>data/apps.csv</code>.</p>
-            <p><strong>To generate the complete report:</strong></p>
+            <p>During development, API quota limits prevented processing the complete dataset.</p>
+            <p>To generate the complete report:</p>
             <ol>
-                <li>Add your API key to <code>.env</code></li>
+                <li>Add a valid API key to <code>.env</code></li>
                 <li>Run the pipeline</li>
                 <li><code>report.html</code> regenerates automatically.</li>
             </ol>
@@ -94,7 +94,7 @@
                         <th onclick="sortTable(9)">Main Blocker ↕</th>
                         <th onclick="sortTable(10)">Confidence ↕</th>
                         <th onclick="sortTable(11)">Verified ↕</th>
-                        <th>Auth Docs</th>
+                        <th>Authentication Docs</th>
                         <th>API Docs</th>
                         <th>Pricing Docs</th>
                     </tr>
@@ -135,16 +135,16 @@
     <!-- ===================================== -->
     <section class="verification-section">
         <div class="section-header">
-            <h2>Verification & Accuracy</h2>
+            <h2>Verification</h2>
         </div>
         
         <div class="flow-diagram">
             <div class="flow-step">Research</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-step">Verification</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-step">Corrections</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-step">Confidence</div>
         </div>
 
@@ -154,13 +154,13 @@
     </section>
 
     <!-- ===================================== -->
-    <!-- AI Pipeline -->
+    <!-- Research Workflow -->
     <!-- ===================================== -->
     <section class="pipeline-section">
         <div class="section-header">
-            <h2>AI Research Pipeline</h2>
+            <h2>Research Workflow</h2>
         </div>
-        <div class="svg-container">
+        <div class="mermaid-container">
             {{PIPELINE}}
         </div>
     </section>
@@ -172,8 +172,28 @@
         <div class="section-header">
             <h2>System Architecture</h2>
         </div>
-        <div class="svg-container">
+        <div class="mermaid-container">
             {{ARCHITECTURE}}
+        </div>
+    </section>
+
+    <!-- ===================================== -->
+    <!-- Technology Stack -->
+    <!-- ===================================== -->
+    <section class="tech-stack-section">
+        <div class="section-header">
+            <h2>Technology Stack</h2>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">Python</div>
+            <div class="tech-card">Gemini</div>
+            <div class="tech-card">HTML</div>
+            <div class="tech-card">CSS</div>
+            <div class="tech-card">JavaScript</div>
+            <div class="tech-card">Chart.js</div>
+            <div class="tech-card">Mermaid</div>
+            <div class="tech-card">CSV</div>
+            <div class="tech-card">JSON</div>
         </div>
     </section>
 
@@ -181,10 +201,12 @@
     <!-- Footer -->
     <!-- ===================================== -->
     <footer>
-        <p>Built for Composio Product Operations Assignment</p>
-        <p style="margin-top: 10px; font-size: 13px; color: #9ca3af;">
-            Pipeline Execution Time: 12:00 PM - 6:00 PM
-        </p>
+        <div class="footer-links">
+            <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank">Repository</a>
+            <a href="https://saketh-chokkapu-portfolio.vercel.app" target="_blank">Portfolio</a>
+            <a href="https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/" target="_blank">LinkedIn</a>
+        </div>
+        <p class="footer-note">Built for Composio Product Operations Assignment</p>
     </footer>
 
     <script src="script.js"></script>

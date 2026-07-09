@@ -17,7 +17,7 @@ class ReportGenerator:
 
         html = html.replace("{{RESEARCH_ROWS}}", self.generate_rows(apps))
         html = html.replace("{{SUMMARY_CARDS}}", self.generate_summary(analysis))
-        html = html.replace("{{BENCHMARKS}}", self.generate_benchmarks())
+        html = html.replace("{{BENCHMARKS}}", self.generate_benchmarks(analysis))
         html = html.replace("{{INSIGHTS}}", self.generate_insights(analysis["insights"]))
         html = html.replace("{{VERIFICATION}}", self.generate_verification(apps))
         html = html.replace("{{PIPELINE}}", self.generate_pipeline())
@@ -25,7 +25,6 @@ class ReportGenerator:
 
         os.makedirs("output", exist_ok=True)
 
-        # Copy static assets for a styled professional report
         if os.path.exists("templates/style.css"):
             shutil.copy("templates/style.css", "output/style.css")
         if os.path.exists("templates/script.js"):
@@ -72,15 +71,9 @@ class ReportGenerator:
 <td>{app.get("main_blocker","-")}</td>
 <td>{app.get("confidence","-")}</td>
 <td>{"✅" if app.get("verified") else "❌"}</td>
-<td>
-<a href="{app.get("evidence", {}).get("authentication","#")}" target="_blank">Docs</a>
-</td>
-<td>
-<a href="{app.get("evidence", {}).get("api","#")}" target="_blank">Docs</a>
-</td>
-<td>
-<a href="{app.get("evidence", {}).get("pricing","#")}" target="_blank">Docs</a>
-</td>
+<td><a href="{app.get("evidence", {}).get("authentication","#")}" target="_blank">Docs</a></td>
+<td><a href="{app.get("evidence", {}).get("api","#")}" target="_blank">Docs</a></td>
+<td><a href="{app.get("evidence", {}).get("pricing","#")}" target="_blank">Docs</a></td>
 </tr>
 """
         return rows
@@ -94,7 +87,7 @@ class ReportGenerator:
         
         total_apps = stats.get("total_apps", 0)
         verified_apps = stats.get("verified_apps", 0)
-        needs_review = total_apps - verified_apps
+        corrections = stats.get("total_corrections", 0)
         
         return f"""
 <div class="summary-card">
@@ -106,7 +99,7 @@ class ReportGenerator:
     <h1>{len(stats.get("categories", {}))}</h1>
 </div>
 <div class="summary-card">
-    <h3>Buildable</h3>
+    <h3>Buildable Applications</h3>
     <h1>{stats.get("buildability", {}).get("Yes", 0)}</h1>
 </div>
 <div class="summary-card">
@@ -118,31 +111,38 @@ class ReportGenerator:
     <h1>{verified_apps}</h1>
 </div>
 <div class="summary-card">
-    <h3>Needs Review</h3>
-    <h1>{needs_review}</h1>
+    <h3>Corrections</h3>
+    <h1>{corrections}</h1>
 </div>
 """
 
     # --------------------------------------------------
 
-    def generate_benchmarks(self):
-        return """
+    def generate_benchmarks(self, analysis):
+        # Pass the analysis data as a JSON string to be used by Chart.js in script.js
+        stats = analysis["statistics"]
+        data_json = json.dumps(stats)
+        
+        return f"""
 <div class="benchmark-card">
     <h3>Authentication Distribution</h3>
-    <div id="authChart"></div>
+    <div class="chart-container"><canvas id="authChart"></canvas></div>
 </div>
 <div class="benchmark-card">
     <h3>API Types</h3>
-    <div id="apiChart"></div>
-</div>
-<div class="benchmark-card">
-    <h3>Buildability</h3>
-    <div id="buildChart"></div>
+    <div class="chart-container"><canvas id="apiChart"></canvas></div>
 </div>
 <div class="benchmark-card">
     <h3>Categories</h3>
-    <div id="categoryChart"></div>
+    <div class="chart-container"><canvas id="categoryChart"></canvas></div>
 </div>
+<div class="benchmark-card">
+    <h3>Buildability</h3>
+    <div class="chart-container"><canvas id="buildChart"></canvas></div>
+</div>
+<script>
+    window.CHART_DATA = {data_json};
+</script>
 """
 
     # --------------------------------------------------
@@ -171,20 +171,20 @@ class ReportGenerator:
         
         return f"""
 <div class="summary-card">
-    <h3>Verified</h3>
+    <h3>Verified Apps</h3>
     <h1>{verified}</h1>
 </div>
 <div class="summary-card">
-    <h3>Failed</h3>
+    <h3>Failed Apps</h3>
     <h1>{failed}</h1>
+</div>
+<div class="summary-card">
+    <h3>Average Confidence</h3>
+    <h1>{avg_conf}%</h1>
 </div>
 <div class="summary-card">
     <h3>Corrections</h3>
     <h1>{corrections}</h1>
-</div>
-<div class="summary-card">
-    <h3>Confidence</h3>
-    <h1>{avg_conf}%</h1>
 </div>
 """
 
@@ -192,87 +192,28 @@ class ReportGenerator:
 
     def generate_pipeline(self):
         return """
-<svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="white" />
-    <g transform="translate(50, 50)" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">
-        
-        <!-- Nodes -->
-        <rect x="0" y="0" width="100" height="50" rx="8" fill="#f3f4f6" stroke="#d1d5db" />
-        <text x="50" y="30" fill="#374151">Apps.csv</text>
-
-        <path d="M 100 25 L 140 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="140" y="0" width="120" height="50" rx="8" fill="#eef2ff" stroke="#a5b4fc" />
-        <text x="200" y="30" fill="#4338ca">Discovery</text>
-
-        <path d="M 260 25 L 300 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="300" y="0" width="120" height="50" rx="8" fill="#eef2ff" stroke="#a5b4fc" />
-        <text x="360" y="30" fill="#4338ca">Research</text>
-
-        <path d="M 420 25 L 460 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="460" y="0" width="120" height="50" rx="8" fill="#dcfce7" stroke="#86efac" />
-        <text x="520" y="30" fill="#166534">Verification</text>
-        
-        <path d="M 580 25 L 620 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="620" y="0" width="120" height="50" rx="8" fill="#fef3c7" stroke="#fcd34d" />
-        <text x="680" y="30" fill="#92400e">Analyzer</text>
-        
-    </g>
-    <defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L9,3 z" fill="#9ca3af" />
-        </marker>
-    </defs>
-</svg>
+<div class="mermaid">
+flowchart TD
+    A[apps.csv] --> B[Research Agent]
+    B --> C[Verification]
+    C --> D[Analyzer]
+    D --> E[HTML Report]
+</div>
 """
 
     # --------------------------------------------------
 
     def generate_architecture(self):
         return """
-<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="white" />
-    <g transform="translate(50, 50)" font-family="Inter, sans-serif" font-size="14">
-        
-        <rect x="0" y="0" width="700" height="300" rx="12" fill="#fafafa" stroke="#e5e7eb" stroke-dasharray="5,5"/>
-        <text x="20" y="30" font-size="16" font-weight="700" fill="#6b7280">System Boundary (Agent Workflow)</text>
-
-        <!-- Input -->
-        <g transform="translate(50, 80)">
-            <rect width="100" height="140" rx="8" fill="#f3f4f6" stroke="#d1d5db" />
-            <text x="50" y="75" text-anchor="middle" font-weight="600" fill="#374151">Data Layer</text>
-        </g>
-
-        <!-- Core Engines -->
-        <g transform="translate(250, 60)">
-            <rect width="200" height="180" rx="8" fill="#eef2ff" stroke="#a5b4fc" />
-            <text x="100" y="30" text-anchor="middle" font-weight="700" fill="#4338ca">Core Processing</text>
-            
-            <rect x="25" y="50" width="150" height="40" rx="4" fill="white" stroke="#c7d2fe"/>
-            <text x="100" y="75" text-anchor="middle" font-weight="600" fill="#374151">Gemini Pro API</text>
-            
-            <rect x="25" y="110" width="150" height="40" rx="4" fill="white" stroke="#c7d2fe"/>
-            <text x="100" y="135" text-anchor="middle" font-weight="600" fill="#374151">HTML Templates</text>
-        </g>
-        
-        <!-- Output -->
-        <g transform="translate(550, 80)">
-            <rect width="100" height="140" rx="8" fill="#f3f4f6" stroke="#d1d5db" />
-            <text x="50" y="75" text-anchor="middle" font-weight="600" fill="#374151">Presentation</text>
-        </g>
-
-        <!-- Connectors -->
-        <path d="M 150 150 L 250 150" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-        <path d="M 450 150 L 550 150" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-        
-    </g>
-    <defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L9,3 z" fill="#9ca3af" />
-        </marker>
-    </defs>
-</svg>
+<div class="mermaid">
+flowchart TD
+    CSV --> PromptBuilder[Prompt Builder]
+    PromptBuilder --> LLM
+    LLM --> Discovery
+    Discovery --> Research
+    Research --> Verification
+    Verification --> JSON
+    JSON --> Analyzer
+    Analyzer --> HTMLGenerator[HTML Generator]
+</div>
 """

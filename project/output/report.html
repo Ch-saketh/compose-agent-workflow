@@ -7,25 +7,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
 
     <!-- ===================================== -->
     <!-- Hero -->
     <!-- ===================================== -->
-    <section class="hero">
+    <section class="hero-section">
         <div class="hero-content">
-            <span class="badge">COMPOSIO PRODUCT OPERATIONS ASSIGNMENT</span>
+            <span class="badge">Composio Product Operations Assignment</span>
             <h1 class="hero-title">AI Product Research Pipeline</h1>
-            <h3 class="hero-subtitle">Automated Data Collection & Verification</h3>
-            <p class="hero-description">
-                An end-to-end autonomous agent workflow for discovering, researching, and verifying SaaS applications, API accessibility, authentication, MCP readiness, and agent buildability.
-            </p>
+            <p class="hero-subtitle">Automated SaaS API Research, Verification and Analysis</p>
             <div class="hero-buttons">
-                <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank" class="btn btn-primary">GitHub Repo</a>
-                <a href="#" target="_blank" class="btn btn-secondary">Portfolio</a>
-                <a href="#" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank" class="btn btn-primary">GitHub</a>
+                <a href="https://saketh-chokkapu-portfolio.vercel.app" target="_blank" class="btn btn-secondary">Portfolio</a>
+                <a href="https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
         </div>
     </section>
@@ -48,7 +47,7 @@
     <h1>7</h1>
 </div>
 <div class="summary-card">
-    <h3>Buildable</h3>
+    <h3>Buildable Applications</h3>
     <h1>7</h1>
 </div>
 <div class="summary-card">
@@ -60,8 +59,8 @@
     <h1>6</h1>
 </div>
 <div class="summary-card">
-    <h3>Needs Review</h3>
-    <h1>1</h1>
+    <h3>Corrections</h3>
+    <h1>0</h1>
 </div>
 
         </div>
@@ -73,11 +72,12 @@
     <section class="note-section">
         <div class="info-card">
             <h3>Implementation Note</h3>
-            <p>This report contains a sample of 5 researched applications due to API usage limitations.</p>
+            <p>This report demonstrates the complete research workflow using a representative sample of applications.</p>
             <p>The pipeline is designed to process all 100 applications listed in <code>data/apps.csv</code>.</p>
-            <p><strong>To generate the complete report:</strong></p>
+            <p>During development, API quota limits prevented processing the complete dataset.</p>
+            <p>To generate the complete report:</p>
             <ol>
-                <li>Add your API key to <code>.env</code></li>
+                <li>Add a valid API key to <code>.env</code></li>
                 <li>Run the pipeline</li>
                 <li><code>report.html</code> regenerates automatically.</li>
             </ol>
@@ -119,7 +119,7 @@
                         <th onclick="sortTable(9)">Main Blocker ↕</th>
                         <th onclick="sortTable(10)">Confidence ↕</th>
                         <th onclick="sortTable(11)">Verified ↕</th>
-                        <th>Auth Docs</th>
+                        <th>Authentication Docs</th>
                         <th>API Docs</th>
                         <th>Pricing Docs</th>
                     </tr>
@@ -139,15 +139,9 @@
 <td>Lack of MCP support for advanced integrations.</td>
 <td>95</td>
 <td>✅</td>
-<td>
-<a href="https://developer.close.com/docs/authentication" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://developer.close.com/api-reference" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://close.com/pricing/" target="_blank">Docs</a>
-</td>
+<td><a href="https://developer.close.com/docs/authentication" target="_blank">Docs</a></td>
+<td><a href="https://developer.close.com/api-reference" target="_blank">Docs</a></td>
+<td><a href="https://close.com/pricing/" target="_blank">Docs</a></td>
 </tr>
 
 <tr>
@@ -163,15 +157,9 @@
 <td>None</td>
 <td>100</td>
 <td>✅</td>
-<td>
-<a href="https://developers.hubspot.com/docs/api/authentication" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://developers.hubspot.com/docs/api" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://www.hubspot.com/pricing" target="_blank">Docs</a>
-</td>
+<td><a href="https://developers.hubspot.com/docs/api/authentication" target="_blank">Docs</a></td>
+<td><a href="https://developers.hubspot.com/docs/api" target="_blank">Docs</a></td>
+<td><a href="https://www.hubspot.com/pricing" target="_blank">Docs</a></td>
 </tr>
 
 <tr>
@@ -187,15 +175,9 @@
 <td>No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.</td>
 <td>98</td>
 <td>✅</td>
-<td>
-<a href="https://www.attio.com/api/authentication" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://www.attio.com/api" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://www.attio.com/pricing" target="_blank">Docs</a>
-</td>
+<td><a href="https://www.attio.com/api/authentication" target="_blank">Docs</a></td>
+<td><a href="https://www.attio.com/api" target="_blank">Docs</a></td>
+<td><a href="https://www.attio.com/pricing" target="_blank">Docs</a></td>
 </tr>
 
 <tr>
@@ -211,15 +193,9 @@
 <td></td>
 <td>98</td>
 <td>✅</td>
-<td>
-<a href="https://www.zoho.com/crm/developer/docs/api/v6/oauth-overview.html" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://www.zoho.com/crm/developer/docs/api/v6/" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://www.zoho.com/crm/pricing.html" target="_blank">Docs</a>
-</td>
+<td><a href="https://www.zoho.com/crm/developer/docs/api/v6/oauth-overview.html" target="_blank">Docs</a></td>
+<td><a href="https://www.zoho.com/crm/developer/docs/api/v6/" target="_blank">Docs</a></td>
+<td><a href="https://www.zoho.com/crm/pricing.html" target="_blank">Docs</a></td>
 </tr>
 
 <tr>
@@ -235,15 +211,9 @@
 <td>None</td>
 <td>95</td>
 <td>✅</td>
-<td>
-<a href="https://developer.salesforce.com/docs/atlas.en-us.identity.meta/identity/identity_overview.htm" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://developer.salesforce.com/docs/api-references" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://www.salesforce.com/pricing/" target="_blank">Docs</a>
-</td>
+<td><a href="https://developer.salesforce.com/docs/atlas.en-us.identity.meta/identity/identity_overview.htm" target="_blank">Docs</a></td>
+<td><a href="https://developer.salesforce.com/docs/api-references" target="_blank">Docs</a></td>
+<td><a href="https://www.salesforce.com/pricing/" target="_blank">Docs</a></td>
 </tr>
 
 <tr>
@@ -259,15 +229,9 @@
 <td>None</td>
 <td>-</td>
 <td>❌</td>
-<td>
-<a href="https://api.slack.com/authentication" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://api.slack.com/methods" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://slack.com/pricing" target="_blank">Docs</a>
-</td>
+<td><a href="https://api.slack.com/authentication" target="_blank">Docs</a></td>
+<td><a href="https://api.slack.com/methods" target="_blank">Docs</a></td>
+<td><a href="https://slack.com/pricing" target="_blank">Docs</a></td>
 </tr>
 
 <tr>
@@ -283,15 +247,9 @@
 <td>None</td>
 <td>98</td>
 <td>✅</td>
-<td>
-<a href="https://docs.twenty.com/api-reference/authentication" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://docs.twenty.com/api-reference" target="_blank">Docs</a>
-</td>
-<td>
-<a href="https://twenty.com/pricing" target="_blank">Docs</a>
-</td>
+<td><a href="https://docs.twenty.com/api-reference/authentication" target="_blank">Docs</a></td>
+<td><a href="https://docs.twenty.com/api-reference" target="_blank">Docs</a></td>
+<td><a href="https://twenty.com/pricing" target="_blank">Docs</a></td>
 </tr>
 
                 </tbody>
@@ -310,20 +268,23 @@
             
 <div class="benchmark-card">
     <h3>Authentication Distribution</h3>
-    <div id="authChart"></div>
+    <div class="chart-container"><canvas id="authChart"></canvas></div>
 </div>
 <div class="benchmark-card">
     <h3>API Types</h3>
-    <div id="apiChart"></div>
-</div>
-<div class="benchmark-card">
-    <h3>Buildability</h3>
-    <div id="buildChart"></div>
+    <div class="chart-container"><canvas id="apiChart"></canvas></div>
 </div>
 <div class="benchmark-card">
     <h3>Categories</h3>
-    <div id="categoryChart"></div>
+    <div class="chart-container"><canvas id="categoryChart"></canvas></div>
 </div>
+<div class="benchmark-card">
+    <h3>Buildability</h3>
+    <div class="chart-container"><canvas id="buildChart"></canvas></div>
+</div>
+<script>
+    window.CHART_DATA = {"total_apps": 7, "authentication": {"API Key or OAuth 2.0": 1, "OAuth 2.0, Private Apps": 1, "API Key, OAuth 2.0": 1, "OAuth 2.0": 2, "OAuth 2.0 (User, Bot, App Tokens)": 1, "API Token": 1}, "api_types": {"REST + Webhooks": 7}, "self_serve": {"Yes": 7}, "buildability": {"Yes": 7}, "categories": {"Sales CRM Platform": 1, "CRM & Marketing": 1, "CRM Platform": 1, "CRM Software": 1, "CRM, Cloud Platform": 1, "Team Communication Platform": 1, "Open-source CRM": 1}, "top_blockers": {"Lack of MCP support for advanced integrations.": 1, "No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.": 1}, "average_confidence": 97.33, "verified_apps": 6, "total_corrections": 0};
+</script>
 
         </div>
     </section>
@@ -381,85 +342,57 @@
     <!-- ===================================== -->
     <section class="verification-section">
         <div class="section-header">
-            <h2>Verification & Accuracy</h2>
+            <h2>Verification</h2>
         </div>
         
         <div class="flow-diagram">
             <div class="flow-step">Research</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-step">Verification</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-step">Corrections</div>
-            <div class="flow-arrow">↓</div>
+            <div class="flow-arrow">→</div>
             <div class="flow-step">Confidence</div>
         </div>
 
         <div class="verification-grid">
             
 <div class="summary-card">
-    <h3>Verified</h3>
+    <h3>Verified Apps</h3>
     <h1>6</h1>
 </div>
 <div class="summary-card">
-    <h3>Failed</h3>
+    <h3>Failed Apps</h3>
     <h1>1</h1>
+</div>
+<div class="summary-card">
+    <h3>Average Confidence</h3>
+    <h1>97.33%</h1>
 </div>
 <div class="summary-card">
     <h3>Corrections</h3>
     <h1>0</h1>
-</div>
-<div class="summary-card">
-    <h3>Confidence</h3>
-    <h1>97.33%</h1>
 </div>
 
         </div>
     </section>
 
     <!-- ===================================== -->
-    <!-- AI Pipeline -->
+    <!-- Research Workflow -->
     <!-- ===================================== -->
     <section class="pipeline-section">
         <div class="section-header">
-            <h2>AI Research Pipeline</h2>
+            <h2>Research Workflow</h2>
         </div>
-        <div class="svg-container">
+        <div class="mermaid-container">
             
-<svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="white" />
-    <g transform="translate(50, 50)" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">
-        
-        <!-- Nodes -->
-        <rect x="0" y="0" width="100" height="50" rx="8" fill="#f3f4f6" stroke="#d1d5db" />
-        <text x="50" y="30" fill="#374151">Apps.csv</text>
-
-        <path d="M 100 25 L 140 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="140" y="0" width="120" height="50" rx="8" fill="#eef2ff" stroke="#a5b4fc" />
-        <text x="200" y="30" fill="#4338ca">Discovery</text>
-
-        <path d="M 260 25 L 300 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="300" y="0" width="120" height="50" rx="8" fill="#eef2ff" stroke="#a5b4fc" />
-        <text x="360" y="30" fill="#4338ca">Research</text>
-
-        <path d="M 420 25 L 460 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="460" y="0" width="120" height="50" rx="8" fill="#dcfce7" stroke="#86efac" />
-        <text x="520" y="30" fill="#166534">Verification</text>
-        
-        <path d="M 580 25 L 620 25" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <rect x="620" y="0" width="120" height="50" rx="8" fill="#fef3c7" stroke="#fcd34d" />
-        <text x="680" y="30" fill="#92400e">Analyzer</text>
-        
-    </g>
-    <defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L9,3 z" fill="#9ca3af" />
-        </marker>
-    </defs>
-</svg>
+<div class="mermaid">
+flowchart TD
+    A[apps.csv] --> B[Research Agent]
+    B --> C[Verification]
+    C --> D[Analyzer]
+    D --> E[HTML Report]
+</div>
 
         </div>
     </section>
@@ -471,51 +404,40 @@
         <div class="section-header">
             <h2>System Architecture</h2>
         </div>
-        <div class="svg-container">
+        <div class="mermaid-container">
             
-<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="white" />
-    <g transform="translate(50, 50)" font-family="Inter, sans-serif" font-size="14">
-        
-        <rect x="0" y="0" width="700" height="300" rx="12" fill="#fafafa" stroke="#e5e7eb" stroke-dasharray="5,5"/>
-        <text x="20" y="30" font-size="16" font-weight="700" fill="#6b7280">System Boundary (Agent Workflow)</text>
+<div class="mermaid">
+flowchart TD
+    CSV --> PromptBuilder[Prompt Builder]
+    PromptBuilder --> LLM
+    LLM --> Discovery
+    Discovery --> Research
+    Research --> Verification
+    Verification --> JSON
+    JSON --> Analyzer
+    Analyzer --> HTMLGenerator[HTML Generator]
+</div>
 
-        <!-- Input -->
-        <g transform="translate(50, 80)">
-            <rect width="100" height="140" rx="8" fill="#f3f4f6" stroke="#d1d5db" />
-            <text x="50" y="75" text-anchor="middle" font-weight="600" fill="#374151">Data Layer</text>
-        </g>
+        </div>
+    </section>
 
-        <!-- Core Engines -->
-        <g transform="translate(250, 60)">
-            <rect width="200" height="180" rx="8" fill="#eef2ff" stroke="#a5b4fc" />
-            <text x="100" y="30" text-anchor="middle" font-weight="700" fill="#4338ca">Core Processing</text>
-            
-            <rect x="25" y="50" width="150" height="40" rx="4" fill="white" stroke="#c7d2fe"/>
-            <text x="100" y="75" text-anchor="middle" font-weight="600" fill="#374151">Gemini Pro API</text>
-            
-            <rect x="25" y="110" width="150" height="40" rx="4" fill="white" stroke="#c7d2fe"/>
-            <text x="100" y="135" text-anchor="middle" font-weight="600" fill="#374151">HTML Templates</text>
-        </g>
-        
-        <!-- Output -->
-        <g transform="translate(550, 80)">
-            <rect width="100" height="140" rx="8" fill="#f3f4f6" stroke="#d1d5db" />
-            <text x="50" y="75" text-anchor="middle" font-weight="600" fill="#374151">Presentation</text>
-        </g>
-
-        <!-- Connectors -->
-        <path d="M 150 150 L 250 150" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-        <path d="M 450 150 L 550 150" stroke="#9ca3af" stroke-width="2" marker-end="url(#arrow)"/>
-        
-    </g>
-    <defs>
-        <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L9,3 z" fill="#9ca3af" />
-        </marker>
-    </defs>
-</svg>
-
+    <!-- ===================================== -->
+    <!-- Technology Stack -->
+    <!-- ===================================== -->
+    <section class="tech-stack-section">
+        <div class="section-header">
+            <h2>Technology Stack</h2>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">Python</div>
+            <div class="tech-card">Gemini</div>
+            <div class="tech-card">HTML</div>
+            <div class="tech-card">CSS</div>
+            <div class="tech-card">JavaScript</div>
+            <div class="tech-card">Chart.js</div>
+            <div class="tech-card">Mermaid</div>
+            <div class="tech-card">CSV</div>
+            <div class="tech-card">JSON</div>
         </div>
     </section>
 
@@ -523,10 +445,12 @@
     <!-- Footer -->
     <!-- ===================================== -->
     <footer>
-        <p>Built for Composio Product Operations Assignment</p>
-        <p style="margin-top: 10px; font-size: 13px; color: #9ca3af;">
-            Pipeline Execution Time: 12:00 PM - 6:00 PM
-        </p>
+        <div class="footer-links">
+            <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank">Repository</a>
+            <a href="https://saketh-chokkapu-portfolio.vercel.app" target="_blank">Portfolio</a>
+            <a href="https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/" target="_blank">LinkedIn</a>
+        </div>
+        <p class="footer-note">Built for Composio Product Operations Assignment</p>
     </footer>
 
     <script src="script.js"></script>
