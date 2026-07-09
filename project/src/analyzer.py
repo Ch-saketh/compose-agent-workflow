@@ -36,6 +36,7 @@ class Analyzer:
 
         confidence_scores = []
         verified_count = 0
+        total_corrections = 0
 
         for app in results:
 
@@ -63,6 +64,8 @@ class Analyzer:
 
             if app.get("verified") is True:
                 verified_count += 1
+                
+            total_corrections += app.get("corrections", 0)
 
         statistics = {
 
@@ -84,7 +87,8 @@ class Analyzer:
                 round(sum(confidence_scores) / len(confidence_scores), 2)
                 if confidence_scores else None,
 
-            "verified_apps": verified_count
+            "verified_apps": verified_count,
+            "total_corrections": total_corrections
         }
 
         insights = self.generate_insights(statistics)
@@ -101,49 +105,50 @@ class Analyzer:
         insights = []
 
         auth = statistics["authentication"]
-
         if auth:
-
             top_auth = max(auth, key=auth.get)
-
-            insights.append(
-                f"{top_auth} is the dominant authentication method."
-            )
+            insights.append({
+                "icon": "🔑",
+                "heading": "Authentication",
+                "desc": f"{top_auth} is the dominant authentication method."
+            })
 
         api = statistics["api_types"]
-
         if api:
-
             top_api = max(api, key=api.get)
-
-            insights.append(
-                f"{top_api} is the most common API type."
-            )
+            insights.append({
+                "icon": "🌐",
+                "heading": "API Type",
+                "desc": f"{top_api} is the most common API type."
+            })
 
         buildability = statistics["buildability"]
-
         if "Yes" in buildability:
-
-            insights.append(
-                f"{buildability['Yes']} applications appear immediately buildable."
-            )
+            insights.append({
+                "icon": "🏗️",
+                "heading": "Agent Readiness",
+                "desc": f"{buildability['Yes']} applications appear immediately buildable."
+            })
 
         blockers = statistics["top_blockers"]
-
         if blockers:
-
             biggest = max(blockers, key=blockers.get)
+            insights.append({
+                "icon": "🚫",
+                "heading": "Common Blockers",
+                "desc": f"The most common blocker is '{biggest}'."
+            })
 
-            insights.append(
-                f"The most common blocker is '{biggest}'."
-            )
+        insights.append({
+            "icon": "🚀",
+            "heading": "Integration Potential",
+            "desc": "Most applications expose public APIs, making them strong candidates for agent integrations."
+        })
 
-        insights.append(
-            "Most applications expose public APIs, making them strong candidates for agent integrations."
-        )
-
-        insights.append(
-            "Native MCP support appears limited, representing an opportunity for custom Composio toolkits."
-        )
+        insights.append({
+            "icon": "💡",
+            "heading": "MCP Opportunities",
+            "desc": "Native MCP support appears limited, representing an opportunity for custom Composio toolkits."
+        })
 
         return insights

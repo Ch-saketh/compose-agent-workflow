@@ -49,12 +49,14 @@ def clean_json_response(text):
 def apply_verification(research, verification):
 
     updated = research.copy()
+    changes = verification.get("changes", [])
 
-    for change in verification.get("changes", []):
+    for change in changes:
         updated[change["field"]] = change["new"]
 
     updated["verified"] = verification.get("verified", False)
     updated["confidence"] = verification.get("confidence", 0)
     updated["verification_notes"] = verification.get("notes", "")
+    updated["corrections"] = len(changes)
 
     return updated

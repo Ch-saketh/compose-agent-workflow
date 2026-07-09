@@ -33,14 +33,39 @@
             "MCP (Multi-Cloud Platform) support not available as a native feature.": 1
         },
         "average_confidence": 97.33,
-        "verified_apps": 6
+        "verified_apps": 6,
+        "total_corrections": 0
     },
     "insights": [
-        "API Key or OAuth 2.0 is the dominant authentication method.",
-        "REST + Webhooks is the most common API type.",
-        "7 applications appear immediately buildable.",
-        "The most common blocker is 'Lack of MCP support for advanced integrations.'.",
-        "Most applications expose public APIs, making them strong candidates for agent integrations.",
-        "Native MCP support appears limited, representing an opportunity for custom Composio toolkits."
+        {
+            "icon": "\ud83d\udd11",
+            "heading": "Authentication",
+            "desc": "API Key or OAuth 2.0 is the dominant authentication method."
+        },
+        {
+            "icon": "\ud83c\udf10",
+            "heading": "API Type",
+            "desc": "REST + Webhooks is the most common API type."
+        },
+        {
+            "icon": "\ud83c\udfd7\ufe0f",
+            "heading": "Agent Readiness",
+            "desc": "7 applications appear immediately buildable."
+        },
+        {
+            "icon": "\ud83d\udeab",
+            "heading": "Common Blockers",
+            "desc": "The most common blocker is 'Lack of MCP support for advanced integrations.'."
+        },
+        {
+            "icon": "\ud83d\ude80",
+            "heading": "Integration Potential",
+            "desc": "Most applications expose public APIs, making them strong candidates for agent integrations."
+        },
+        {
+            "icon": "\ud83d\udca1",
+            "heading": "MCP Opportunities",
+            "desc": "Native MCP support appears limited, representing an opportunity for custom Composio toolkits."
+        }
     ]
 }
