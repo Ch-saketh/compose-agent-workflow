@@ -1,16 +1,16 @@
 {
-    "category": "CRM, Cloud Platform",
-    "description": "Leading cloud-based CRM platform for sales, service, marketing, and analytics with extensive integration capabilities.",
+    "category": "Enterprise CRM Platform",
+    "description": "Cloud-based CRM for sales, service, marketing, and analytics.",
     "auth_method": "OAuth 2.0",
     "self_serve": "Yes",
     "api_type": "REST + Webhooks",
     "api_coverage": "Broad",
     "mcp_support": "Yes",
     "buildability_verdict": "Yes",
-    "main_blocker": "None",
+    "main_blocker": "None, robust platform with comprehensive developer tools.",
     "evidence": {
-        "authentication": "https://developer.salesforce.com/docs/atlas.en-us.identity.meta/identity/identity_overview.htm",
-        "api": "https://developer.salesforce.com/docs/api-references",
+        "authentication": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_oauth.htm",
+        "api": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/sforce_rest_api_reference.htm",
         "pricing": "https://www.salesforce.com/pricing/"
     },
     "verified": true,

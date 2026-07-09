@@ -1,0 +1,20 @@
+{
+    "category": "Sales CRM Software",
+    "description": "Sales CRM software designed to help small and medium businesses manage sales pipelines and close deals efficiently.",
+    "auth_method": "OAuth 2.0, API Tokens",
+    "self_serve": "Yes",
+    "api_type": "REST + Webhooks",
+    "api_coverage": "Broad",
+    "mcp_support": "No",
+    "buildability_verdict": "Yes",
+    "main_blocker": "None",
+    "evidence": {
+        "authentication": "https://developers.pipedrive.com/docs/api/authentication",
+        "api": "https://developers.pipedrive.com/api/v1",
+        "pricing": "https://www.pipedrive.com/pricing"
+    },
+    "verified": true,
+    "confidence": 98,
+    "verification_notes": "",
+    "corrections": 0
+}

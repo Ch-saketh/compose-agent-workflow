@@ -1,20 +1,20 @@
 {
-    "category": "CRM & Marketing",
-    "description": "Comprehensive CRM platform for marketing, sales, service, and content management, with extensive integration capabilities.",
+    "category": "CRM, Marketing, Sales",
+    "description": "Comprehensive CRM platform offering marketing, sales, service, and content management tools for businesses.",
     "auth_method": "OAuth 2.0, Private Apps",
     "self_serve": "Yes",
     "api_type": "REST + Webhooks",
     "api_coverage": "Broad",
-    "mcp_support": "No",
+    "mcp_support": "Unknown",
     "buildability_verdict": "Yes",
-    "main_blocker": "None",
+    "main_blocker": "N/A",
     "evidence": {
         "authentication": "https://developers.hubspot.com/docs/api/authentication",
         "api": "https://developers.hubspot.com/docs/api",
         "pricing": "https://www.hubspot.com/pricing"
     },
-    "verified": true,
-    "confidence": 100,
+    "verified": false,
+    "confidence": 90,
     "verification_notes": "",
-    "corrections": 0
+    "corrections": 2
 }

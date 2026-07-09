@@ -1,39 +1,43 @@
 {
     "statistics": {
-        "total_apps": 7,
+        "total_apps": 8,
         "authentication": {
             "API Key or OAuth 2.0": 1,
             "OAuth 2.0, Private Apps": 1,
-            "API Key, OAuth 2.0": 1,
+            "API Keys, OAuth 2.0": 1,
             "OAuth 2.0": 2,
+            "OAuth 2.0, API Tokens": 1,
             "OAuth 2.0 (User, Bot, App Tokens)": 1,
             "API Token": 1
         },
         "api_types": {
-            "REST + Webhooks": 7
+            "REST + Webhooks": 8
         },
         "self_serve": {
-            "Yes": 7
+            "Yes": 8
         },
         "buildability": {
-            "Yes": 7
+            "Yes": 8
         },
         "categories": {
             "Sales CRM Platform": 1,
-            "CRM & Marketing": 1,
-            "CRM Platform": 1,
+            "CRM, Marketing, Sales": 1,
+            "Unknown": 1,
             "CRM Software": 1,
-            "CRM, Cloud Platform": 1,
+            "Sales CRM Software": 1,
+            "Enterprise CRM Platform": 1,
             "Team Communication Platform": 1,
             "Open-source CRM": 1
         },
         "top_blockers": {
             "Lack of MCP support for advanced integrations.": 1,
-            "No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.": 1
+            "N/A": 1,
+            "None apparent; comprehensive API and documentation available.": 1,
+            "None, robust platform with comprehensive developer tools.": 1
         },
-        "average_confidence": 97.33,
-        "verified_apps": 6,
-        "total_corrections": 0
+        "average_confidence": 94.86,
+        "verified_apps": 5,
+        "total_corrections": 5
     },
     "insights": [
         {
@@ -49,7 +53,7 @@
         {
             "icon": "\ud83c\udfd7\ufe0f",
             "heading": "Agent Readiness",
-            "desc": "7 applications appear immediately buildable."
+            "desc": "8 applications appear immediately buildable."
         },
         {
             "icon": "\ud83d\udeab",

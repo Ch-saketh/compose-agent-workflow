@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Product Research Pipeline</title>
+    <title>AI Product Research Pipeline | Case Study</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,58 +13,153 @@
 </head>
 <body>
 
-    <!-- ===================================== -->
-    <!-- Hero -->
-    <!-- ===================================== -->
+    <!-- 1. Cover / Hero -->
     <section class="hero-section">
         <div class="hero-content">
             <span class="badge">Composio Product Operations Assignment</span>
             <h1 class="hero-title">AI Product Research Pipeline</h1>
             <p class="hero-subtitle">Automated SaaS API Research, Verification and Analysis</p>
             <div class="hero-buttons">
-                <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank" class="btn btn-primary">GitHub</a>
+                <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank" class="btn btn-primary">GitHub Repository</a>
                 <a href="https://saketh-chokkapu-portfolio.vercel.app" target="_blank" class="btn btn-secondary">Portfolio</a>
                 <a href="https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Executive Summary -->
-    <!-- ===================================== -->
+    <!-- 2. Problem Statement -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>🎯 Problem Statement</h2>
+        </div>
+        <div class="text-content">
+            <p>Evaluating third-party SaaS applications for integration potential is traditionally a highly manual and time-consuming process. Product Operations engineers and Developer Advocates often spend hours digging through disparate developer portals to uncover authentication methods, API limitations, and Multi-Cloud Platform (MCP) support.</p>
+            <p>This manual approach doesn't scale when a platform needs to rapidly assess hundreds of potential integration targets to build a comprehensive agentic ecosystem.</p>
+        </div>
+    </section>
+
+    <!-- 3. Assignment Objective -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>📋 Assignment Objective</h2>
+        </div>
+        <div class="text-content">
+            <p>The core objective of this assignment was to build an autonomous pipeline capable of researching 100 SaaS applications, analyzing their API documentation, and determining their "Agent Buildability."</p>
+            <p>To succeed, the system needed to act as a resilient data pipeline that not only queries large language models (LLMs) but also cross-verifies the extracted data for accuracy, ensuring that downstream engineering decisions are based on high-confidence insights.</p>
+        </div>
+    </section>
+
+    <!-- 4. Solution Overview -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>💡 Solution Overview</h2>
+        </div>
+        <div class="text-content">
+            <p>I architected a modular, multi-agent AI pipeline driven by Google's Gemini Pro. Rather than attempting a massive, brittle zero-shot prompt, the system relies on specialized, decoupled agents.</p>
+            <ul class="feature-list">
+                <li><strong>CSV-Driven Data Layer:</strong> A simple <code>apps.csv</code> acts as the single source of truth, allowing non-technical stakeholders to queue new applications effortlessly without touching the codebase.</li>
+                <li><strong>JSON Intermediate State:</strong> By enforcing strict JSON schema outputs from the LLM, the pipeline caches raw data locally. This prevents data loss on failures, avoids redundant API calls, and allows the final presentation layer to be rebuilt instantly.</li>
+                <li><strong>Isolated Verification:</strong> Recognizing that LLMs occasionally hallucinate URLs or hallucinate API features, a dedicated Verification Agent audits the initial research.</li>
+                <li><strong>Decoupled Analyzer & HTML Deliverable:</strong> Analytics are separated from data gathering. Generating a static HTML file ensures the final report is portable, zero-dependency, and instantly deployable to any static hosting provider.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. System Architecture -->
+    <section class="architecture-section">
+        <div class="section-header">
+            <h2>⚙️ System Architecture</h2>
+            <p>A layered approach separating data ingestion, core LLM processing, and presentation.</p>
+        </div>
+        <div class="mermaid-container">
+            {{ARCHITECTURE}}
+        </div>
+    </section>
+
+    <!-- 6. Research Workflow -->
+    <section class="pipeline-section">
+        <div class="section-header">
+            <h2>🔄 Research Workflow</h2>
+            <p>The step-by-step data transformation pipeline executed for every application.</p>
+        </div>
+        <div class="mermaid-container">
+            {{PIPELINE}}
+        </div>
+    </section>
+
+    <!-- 7. Project Structure -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>📁 Project Structure</h2>
+        </div>
+        <div class="code-card">
+<pre><code>project/
+├── data/
+│   ├── apps.csv           # Input data source
+│   └── processed/         # Cached intermediate JSON results
+├── output/
+│   ├── analysis.json      # Aggregated metrics
+│   └── report.html        # Final static deliverable
+├── prompts/               # Prompt templates (Markdown)
+├── src/
+│   ├── discovery.py       # Documentation search agent
+│   ├── researcher.py      # Data extraction agent
+│   ├── verifier.py        # Accuracy audit agent
+│   ├── analyzer.py        # Metric aggregation
+│   └── report.py          # HTML template injection
+└── templates/             # HTML/CSS/JS frontend assets</code></pre>
+        </div>
+    </section>
+
+    <!-- 8. Agent Responsibilities -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>🤖 Agent Responsibilities</h2>
+        </div>
+        <div class="agent-grid">
+            <div class="agent-card">
+                <h3>1. Discovery Agent</h3>
+                <p>Identifies the canonical developer documentation, API references, and pricing pages to anchor the research in factual sources.</p>
+            </div>
+            <div class="agent-card">
+                <h3>2. Research Agent</h3>
+                <p>Crawls the discovered URLs and extracts structured information strictly adhering to the expected JSON schema.</p>
+            </div>
+            <div class="agent-card">
+                <h3>3. Verification Agent</h3>
+                <p>Acts as an adversarial auditor. It scores the confidence of the research and applies automated corrections if assumptions were made.</p>
+            </div>
+            <div class="agent-card">
+                <h3>4. Analyzer</h3>
+                <p>Aggregates the individual verified JSON files to compute pipeline-wide metrics, distributions, and key insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary (Moved here to preface the Matrix) -->
     <section class="summary-section">
         <div class="section-header">
-            <h2>Executive Summary</h2>
+            <h2>📊 Executive Summary</h2>
+            <p>High-level metrics generated from the processed dataset.</p>
         </div>
+        
+        <!-- Implementation Note -->
+        <div class="info-card" style="margin-bottom: 24px;">
+            <h3>Implementation Note</h3>
+            <p>This report demonstrates the complete research workflow using a representative sample of applications.</p>
+            <p>The pipeline is designed to process all 100 applications listed in <code>data/apps.csv</code>. During development, Google Gemini API free-tier quota limits (max 20 requests per day) prevented processing the complete dataset in a single run.</p>
+            <p><strong>To generate the complete report:</strong> Add a valid API key to <code>.env</code>, run <code>main.py</code>, and this HTML file will dynamically regenerate with the full dataset.</p>
+        </div>
+
         <div class="summary-grid">
             {{SUMMARY_CARDS}}
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Implementation Note -->
-    <!-- ===================================== -->
-    <section class="note-section">
-        <div class="info-card">
-            <h3>Implementation Note</h3>
-            <p>This report demonstrates the complete research workflow using a representative sample of applications.</p>
-            <p>The pipeline is designed to process all 100 applications listed in <code>data/apps.csv</code>.</p>
-            <p>During development, API quota limits prevented processing the complete dataset.</p>
-            <p>To generate the complete report:</p>
-            <ol>
-                <li>Add a valid API key to <code>.env</code></li>
-                <li>Run the pipeline</li>
-                <li><code>report.html</code> regenerates automatically.</li>
-            </ol>
-        </div>
-    </section>
-
-    <!-- ===================================== -->
-    <!-- Research Matrix -->
-    <!-- ===================================== -->
+    <!-- 9. Research Matrix -->
     <section class="research-section">
         <div class="section-header">
-            <h2>Research Matrix</h2>
+            <h2>🗄️ Research Matrix</h2>
             <p>Complete structured dataset generated by the AI research pipeline.</p>
         </div>
         
@@ -94,7 +189,7 @@
                         <th onclick="sortTable(9)">Main Blocker ↕</th>
                         <th onclick="sortTable(10)">Confidence ↕</th>
                         <th onclick="sortTable(11)">Verified ↕</th>
-                        <th>Authentication Docs</th>
+                        <th>Auth Docs</th>
                         <th>API Docs</th>
                         <th>Pricing Docs</th>
                     </tr>
@@ -106,100 +201,108 @@
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Benchmark Dashboard -->
-    <!-- ===================================== -->
+    <!-- 10. Benchmark Dashboard -->
     <section class="benchmark-section">
         <div class="section-header">
-            <h2>Benchmark Dashboard</h2>
+            <h2>📈 Benchmark Dashboard</h2>
+            <p>Visual distributions of the structured dataset.</p>
         </div>
         <div class="benchmark-grid">
             {{BENCHMARKS}}
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Key Insights -->
-    <!-- ===================================== -->
+    <!-- 11. Pattern Analysis / Insights -->
     <section class="insight-section">
         <div class="section-header">
-            <h2>Key Insights</h2>
+            <h2>🧠 Pattern Analysis & Insights</h2>
+            <p>Automated qualitative takeaways identified by the Analyzer.</p>
         </div>
         <div class="insight-grid">
             {{INSIGHTS}}
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Verification -->
-    <!-- ===================================== -->
+    <!-- 12. Verification Process -->
     <section class="verification-section">
         <div class="section-header">
-            <h2>Verification</h2>
+            <h2>🛡️ Verification Process</h2>
+            <p>Metrics tracking the effectiveness of the adversarial Verification Agent.</p>
         </div>
-        
-        <div class="flow-diagram">
-            <div class="flow-step">Research</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">Verification</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">Corrections</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">Confidence</div>
-        </div>
-
         <div class="verification-grid">
             {{VERIFICATION}}
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Research Workflow -->
-    <!-- ===================================== -->
-    <section class="pipeline-section">
+    <!-- 13. Challenges Encountered -->
+    <section class="text-section">
         <div class="section-header">
-            <h2>Research Workflow</h2>
+            <h2>🚧 Challenges Encountered</h2>
         </div>
-        <div class="mermaid-container">
-            {{PIPELINE}}
+        <div class="text-content">
+            <ul class="feature-list">
+                <li><strong>API Rate Limits:</strong> The free tier of the Gemini API imposes strict rate limits (20 requests per day). I mitigated this by implementing local JSON caching. If an API call fails with a 429 error, the pipeline gracefully skips the app without destroying previously gathered data.</li>
+                <li><strong>Hallucinated URLs:</strong> Early iterations of the LLM occasionally hallucinated documentation links. This was resolved by creating the adversarial Verification Agent, which cross-checks the URLs and applies corrections before saving the final state.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- System Architecture -->
-    <!-- ===================================== -->
-    <section class="architecture-section">
+    <!-- 14. Future Improvements -->
+    <section class="text-section">
         <div class="section-header">
-            <h2>System Architecture</h2>
+            <h2>🚀 Future Improvements</h2>
         </div>
-        <div class="mermaid-container">
-            {{ARCHITECTURE}}
+        <div class="text-content">
+            <ul class="feature-list">
+                <li><strong>Parallel Processing:</strong> Implement <code>asyncio</code> to process multiple applications concurrently, drastically reducing pipeline execution time (assuming higher API quotas).</li>
+                <li><strong>Headless Browsing:</strong> Integrate Playwright or Selenium to scrape developer portals that require JavaScript rendering before passing the raw HTML to the LLM.</li>
+                <li><strong>Vector Database Integration:</strong> Embed the discovered API documentation into a vector database (e.g., Pinecone) to allow engineers to chat directly with the research dataset.</li>
+            </ul>
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Technology Stack -->
-    <!-- ===================================== -->
+    <!-- 15. Technology Stack -->
     <section class="tech-stack-section">
         <div class="section-header">
-            <h2>Technology Stack</h2>
+            <h2>💻 Technology Stack</h2>
         </div>
         <div class="tech-grid">
             <div class="tech-card">Python</div>
-            <div class="tech-card">Gemini</div>
-            <div class="tech-card">HTML</div>
-            <div class="tech-card">CSS</div>
-            <div class="tech-card">JavaScript</div>
+            <div class="tech-card">Gemini 2.5 Flash</div>
+            <div class="tech-card">HTML5</div>
+            <div class="tech-card">Vanilla CSS</div>
+            <div class="tech-card">JavaScript (ES6)</div>
             <div class="tech-card">Chart.js</div>
-            <div class="tech-card">Mermaid</div>
-            <div class="tech-card">CSV</div>
+            <div class="tech-card">Mermaid.js</div>
             <div class="tech-card">JSON</div>
+            <div class="tech-card">CSV</div>
         </div>
     </section>
 
-    <!-- ===================================== -->
-    <!-- Footer -->
-    <!-- ===================================== -->
+    <!-- 16. Deployment -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>🌐 Deployment</h2>
+        </div>
+        <div class="text-content">
+            <p>Because the final deliverable is a static HTML page, the report can be deployed anywhere with zero infrastructure overhead. The source code for this entire pipeline is hosted on GitHub.</p>
+            <p><strong>GitHub Repository:</strong> <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank">https://github.com/Ch-saketh/compose-agent-workflow</a></p>
+            <p><strong>Portfolio:</strong> <a href="https://saketh-chokkapu-portfolio.vercel.app" target="_blank">https://saketh-chokkapu-portfolio.vercel.app</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/" target="_blank">https://www.linkedin.com/in/saketh-chokkapu-3a668a2b9/</a></p>
+        </div>
+    </section>
+
+    <!-- 17. Conclusion -->
+    <section class="text-section">
+        <div class="section-header">
+            <h2>🏁 Conclusion</h2>
+        </div>
+        <div class="text-content">
+            <p>This project successfully demonstrates how decoupled, specialized AI agents can automate tedious data gathering tasks. By enforcing structured intermediate data (JSON) and utilizing an adversarial verification step, the pipeline delivers highly reliable, actionable intelligence for Product Operations teams.</p>
+        </div>
+    </section>
+
+    <!-- 18. Footer -->
     <footer>
         <div class="footer-links">
             <a href="https://github.com/Ch-saketh/compose-agent-workflow" target="_blank">Repository</a>

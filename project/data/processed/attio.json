@@ -1,19 +1,20 @@
 {
-    "category": "CRM Platform",
-    "description": "Next-gen CRM platform for growing businesses with data, automation, and custom views.",
-    "auth_method": "API Key, OAuth 2.0",
+    "category": "Unknown",
+    "description": "Unknown",
+    "auth_method": "API Keys, OAuth 2.0",
     "self_serve": "Yes",
     "api_type": "REST + Webhooks",
-    "api_coverage": "Broad",
-    "mcp_support": "No",
+    "api_coverage": "Unknown",
+    "mcp_support": "Yes",
     "buildability_verdict": "Yes",
-    "main_blocker": "No direct support for Multi-Cloud Platform (MCP) integrations is a potential blocker.",
+    "main_blocker": "None apparent; comprehensive API and documentation available.",
     "evidence": {
-        "authentication": "https://www.attio.com/api/authentication",
-        "api": "https://www.attio.com/api",
-        "pricing": "https://www.attio.com/pricing"
+        "authentication": "https://www.attio.com/docs/api/authentication",
+        "api": "https://www.attio.com/docs/api/attio-api",
+        "pricing": "https://attio.com/pricing"
     },
-    "verified": true,
-    "confidence": 98,
-    "verification_notes": ""
+    "verified": false,
+    "confidence": 90,
+    "verification_notes": "",
+    "corrections": 3
 }
